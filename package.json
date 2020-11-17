@@ -1,0 +1,11 @@
+{
+  "name": "ensembl_transcripts",
+  "version": "1.0.0",
+  "description": "A webapp for drawing Ensembl gene transcripts",
+  "main": "app.js",
+  "scripts": {
+    "start": "python -m SimpleHTTPServer 8000"
+  },
+  "author": "Andres Veidenberg",
+  "license": "MIT"
+}
