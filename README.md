@@ -3,9 +3,8 @@
 
 # Ensembl transcript browser
 
-**[Demo site ⇢](https://veidenberg.github.io/ensembl-transcripts/)**
-
-This is a prototype web application that draws gene transcripts using data from [Ensembl REST API](https://rest.ensembl.org). 
+This is a prototype web application that draws gene transcripts using data from [Ensembl REST API](https://rest.ensembl.org).  
+**[Demo site ⇢](https://veidenberg.github.io/ensembl-transcripts/)** 
 
 ## Run locally
 
@@ -61,7 +60,7 @@ npm install vue-jest  #Vue integration
 ```
 jest
 ```
-Currently the tests fail for techical reasons (environemnt setup issues). Work in progress...
+Currently the tests fail for technical reasons (environment setup issues). Work in progress...
 
 # License
 
