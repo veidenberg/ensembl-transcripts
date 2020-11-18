@@ -25,8 +25,8 @@ new Vue({
 
 	//these functions are run on each page load
 	mounted() {
-		//read example gene data
-		fetch('example.json')
+		//read the example gene data
+		fetch('example_gene.json')
 		.then(text => text.json())
 		.then(json => this.example = json)
 		.catch(error => console.error('Cannot read JSON file: '+error));

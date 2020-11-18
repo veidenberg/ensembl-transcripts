@@ -1,10 +1,21 @@
 {
-  "name": "ensembl_transcripts",
+  "name": "ensembl-transcripts",
   "version": "1.0.0",
-  "description": "A webapp for drawing Ensembl gene transcripts",
+  "description": "A simple webapp for drawing Ensembl gene transcripts",
   "main": "app.js",
   "scripts": {
-    "start": "python -m SimpleHTTPServer 8000"
+    "start": "python -m SimpleHTTPServer 8000",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@vue/test-utils": "^1.1.1",
+    "jest": "^26.0.0"
+  },
+  "jest": {
+    "moduleFileExtensions": ["js", "json"],
+    "testMatch": [
+      "**/tests/*.test.js"
+    ]
   },
   "author": "Andres Veidenberg",
   "license": "MIT"

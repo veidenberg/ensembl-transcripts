@@ -1,9 +1,9 @@
 
-[!screenshot](screenshot.png)
+![screenshot](screenshot.png)
 
 # Ensembl transcript browser
 
-**[Demo site ⇢](http://wasabiapp.org/transcripts/)**
+**[Demo site ⇢](https://veidenberg.github.io/ensembl-transcripts/)**
 
 This is a prototype web application that draws gene transcripts using data from [Ensembl REST API](https://rest.ensembl.org). 
 
@@ -45,13 +45,25 @@ The webapp can also run without a web server (in offline mode):
 
 ### Development
 
-- Use to Vue development version (see idnex.html) and a hot-reloading server (e.g. Node live-server module)
+- Use the Vue development version (see index.html) and a hot-reloading server (e.g. Node live-server module)
 
 ### Testing
 
+Unit test specifications in the `tests` directory are designed to test the Vue components used in the webapp.
 
+**Setup:**
+```
+npm install jest            #Jest test framework
+npm install @vue/test-utils #Vue unit testing library
+npm install vue-jest  #Vue integration
+```
+**Run the tests:**
+```
+jest
+```
+Currently the tests fail for techical reasons (environemnt setup issues). Work in progress...
 
 # License
 
-[MIT](https://opensource.org/licenses/MIT)
+[MIT](https://opensource.org/licenses/MIT)  
 Author: [Andres Veidenberg](https://www.linkedin.com/in/aveidenberg/)
