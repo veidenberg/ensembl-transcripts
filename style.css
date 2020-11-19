@@ -3,20 +3,20 @@ CSS styles for Ensembl assessment webapp
 Andres Veidenberg 2020
 */
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /*
 Stretch content to viewport
 */
 html {
-	height: 100vh;
+  height: 100vh;
 }
 
 body {
-	min-height: 100vh;
+  min-height: 100vh;
 }
 
 /*
@@ -24,105 +24,105 @@ Root container: 2-column grid layout
 (single-column layout in non-grid (before 2017) browsers)
 */
 #app {
-	min-height: 100vh;
-	padding: 15px 30px;
-	display: grid;
-	grid-template-rows: auto auto auto 1fr auto;
-	grid-template-columns: 1fr auto;
-	grid-gap: 10px;
-	grid-template-areas: 
-	"header header"
-	"search search"
-	"sort htitle"
-	"left right"
-	"footer footer";
-	background: linear-gradient(rgb(192, 241, 149), rgb(76, 155, 149));
-	font-family: Arial, Helvetica, sans-serif;
-	color: rgb(14, 41, 66);
+  min-height: 100vh;
+  padding: 15px 30px;
+  display: grid;
+  grid-template-rows: auto auto auto 1fr auto;
+  grid-template-columns: 1fr auto;
+  grid-gap: 10px;
+  grid-template-areas: 
+  "header header"
+  "search search"
+  "sort htitle"
+  "left right"
+  "footer footer";
+  background: linear-gradient(rgb(192, 241, 149), rgb(76, 155, 149));
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(14, 41, 66);
 }
 
 /*
 Top section: header (page title) and searchbar
 */
 header {
-	grid-area: header;
-	text-align: center;
-	letter-spacing: 1px;
-	margin: 10px auto;
+  grid-area: header;
+  text-align: center;
+  letter-spacing: 1px;
+  margin: 10px auto;
 }
 
 header h1 {
-	font-size: 42px;
-	color: rgb(28, 80, 128);
+  font-size: 42px;
+  color: rgb(28, 80, 128);
 }
 
 header h1 span {
-	margin-left: 10px;
-	font-weight: 100;
-	font-size: 36px;
-	color: rgb(119, 167, 163);
+  margin-left: 10px;
+  font-weight: 100;
+  font-size: 36px;
+  color: rgb(119, 167, 163);
 }
 
 .search {
-	grid-area: search;
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	justify-self: center;
-	margin: 0 auto;
+  grid-area: search;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-self: center;
+  margin: 0 auto;
 }
 
 .searchbox{
-	width: 280px;
-	margin: 0 auto;
-	display: flex;
+  width: 280px;
+  margin: 0 auto;
+  display: flex;
 }
 
 .searchbox input {
-	width: 100%;
-	line-height: 20px;
-	text-align: center;
-	border: none;
-	border-radius: 20px;
-	padding: 10px 20px;
-	background: rgba(255,255,255,0.8);
-	box-shadow: 0 5px 15px rgba(100,100,100,0.2);
-	color: rgb(27, 49, 70);
-	font-size: 18px;
+  width: 100%;
+  line-height: 20px;
+  text-align: center;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  background: rgba(255,255,255,0.8);
+  box-shadow: 0 5px 15px rgba(100,100,100,0.2);
+  color: rgb(27, 49, 70);
+  font-size: 18px;
 }
 
 .searchbox button {
-	font-size: 26px;
-	width: 30px;
-	height: 30px;
-	background: transparent;
-	margin: 5px 0 0 -36px;
-	cursor: pointer;
+  font-size: 26px;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  margin: 5px 0 0 -36px;
+  cursor: pointer;
 }
 
 .searchbox button.go {
-	color: rgb(119, 167, 163);
-	border: none;
+  color: rgb(119, 167, 163);
+  border: none;
 }
 .searchbox button.go:hover {
-	color: orange;
+  color: orange;
 }
 
 .search button.cancel {
-	color: transparent;
-	border: 5px solid #eee;
-	border-top-color: rgb(140, 196, 191);
-	border-radius: 50%;
-	animation: spinner 1s linear infinite;
+  color: transparent;
+  border: 5px solid #eee;
+  border-top-color: rgb(140, 196, 191);
+  border-radius: 50%;
+  animation: spinner 1s linear infinite;
 }
 .searchbox button.cancel:hover {
-	border-top-color: orange;
+  border-top-color: orange;
 }
-	
+  
 @keyframes spinner {
-	100% {
-		transform: rotate(360deg);
-	}
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 input:focus, button:focus {
@@ -130,133 +130,133 @@ input:focus, button:focus {
 }
 
 .search .error {
-	color: rgb(214, 23, 23);
-	font-size: 18px;
-	text-align: center;
-	width: 100%;
-	height: 20px;
-	margin-top: 10px;
+  color: rgb(214, 23, 23);
+  font-size: 18px;
+  text-align: center;
+  width: 100%;
+  height: 20px;
+  margin-top: 10px;
 }
 
 /*
 Left column: sorting selector and drawing canvas
 */
 .sort {
-	grid-area: sort;
-	text-align: center;
+  grid-area: sort;
+  text-align: center;
 }
 
 
 .main {
-	grid-area: left;
-	background: white;
-	border-radius: 3px;
-	box-shadow: 0 5px 10px rgba(100,100,100,0.4);
+  grid-area: left;
+  background: white;
+  border-radius: 3px;
+  box-shadow: 0 5px 10px rgba(100,100,100,0.4);
 }
 
 .main .genename, .main .transcripts{
-	position: relative;
-	margin: 20px;
-	text-align: center;
-	cursor: default;
+  position: relative;
+  margin: 20px;
+  text-align: center;
+  cursor: default;
 }
 .main .genename {
-	margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .transcript{
-	position: relative;
-	height: 30px;
-	width: 100%;
+  position: relative;
+  height: 30px;
+  width: 100%;
 }
 .transcript:hover{
-	background: #eee;
+  background: #eee;
 }
 
 .transcript .line{
-	position: absolute;
-	height: 1px;
-	top: 14px;
-	background: darkblue;
+  position: absolute;
+  height: 1px;
+  top: 14px;
+  background: darkblue;
 }
 
 .transcript .exon{
-	position: absolute;
-	height: 8px;
-	top: 10px;
-	border: 1px solid darkblue;
-	background: lightblue;
+  position: absolute;
+  height: 8px;
+  top: 10px;
+  border: 1px solid darkblue;
+  background: lightblue;
 }
 
 .transcript.rev .line{
-	background: darkred;
+  background: darkred;
 }
 .transcript.rev .exon{
-	border: 1px solid darkred;
-	background: pink;
+  border: 1px solid darkred;
+  background: pink;
 }
 
 .sort-move{
-	transition: transform 1s;
+  transition: transform 1s;
 }
 
 /*
 Right column: History (title and gene list)
 */
 .htitle{
-	grid-area: htitle;
+  grid-area: htitle;
 }
 
 .history {
-	grid-area: right;
-	min-width: 150px;
+  grid-area: right;
+  min-width: 150px;
 }
 
 .history ul {
-	display: flex;
-	flex-direction: column;
-	border-radius: 3px;
-	padding: 5px;
-	background: white;
-	box-shadow: 0 5px 10px rgba(100,100,100,0.4);
+  display: flex;
+  flex-direction: column;
+  border-radius: 3px;
+  padding: 5px;
+  background: white;
+  box-shadow: 0 5px 10px rgba(100,100,100,0.4);
 }
 
 .history ul li {
-	padding: 5px 10px;
-	cursor: pointer;
-	color: rgb(30, 101, 155);
-	list-style: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  color: rgb(30, 101, 155);
+  list-style: none;
 }
 .history ul li:hover {
-	color: orange;
+  color: orange;
 }
 
 /*
 Placeholders in main/history sections
 */
 .empty, .history ul li.empty, .history ul li.empty:hover {
-	color: rgb(133, 163, 192);
-	width: 100%;
-	text-align: center;
-	padding: 20px 0;
-	cursor: default;
+  color: rgb(133, 163, 192);
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+  cursor: default;
 }
 .empty a{
-	cursor: pointer;
-	color: rgb(0, 106, 187);
+  cursor: pointer;
+  color: rgb(0, 106, 187);
 }
 .empty a:hover{
-	color: orange;
-	text-decoration: none;
+  color: orange;
+  text-decoration: none;
 }
 
 /*
 Bottom footer
 */
 footer {
-	grid-area: footer;
-	text-align: center;
-	font-size: 14px;
-	color: rgb(69, 85, 97);
-	padding: 10px;
+  grid-area: footer;
+  text-align: center;
+  font-size: 14px;
+  color: rgb(69, 85, 97);
+  padding: 10px;
 }

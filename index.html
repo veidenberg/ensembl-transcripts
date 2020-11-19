@@ -1,89 +1,89 @@
 <!--
-	HTML layout for Ensembl assessment webapp
-	Andres Veidenberg 2020
+  HTML layout for Ensembl assessment webapp
+  Andres Veidenberg 2020
 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Ensembl transcripts</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ensembl transcripts</title>
 
-	<!-- Vue development version:
-		<script src="https://unpkg.com/vue/dist/vue.js"></script>
-	-->
- 	<script src="https://unpkg.com/vue/dist/vue.min.js"></script> 
-	<script src="transcript.js"></script>
-	<link href="style.css" rel="stylesheet" />
+  <!-- Vue development version:
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  -->
+   <script src="https://unpkg.com/vue/dist/vue.min.js"></script> 
+  <script src="transcript.js"></script>
+  <link href="style.css" rel="stylesheet" />
 </head>
 
 <body>
-	<div id="app">
-		<!-- top section -->
-		<header>
-			<h1>Ensembl <span>transcripts</span></h1>
-			<noscript>
-				<strong>
-					We're sorry but this webapp doesn't work properly without JavaScript enabled. Please enable it to continue.
-				</strong>
-			</noscript>
-		</header>
-			
-		<div class="search">
-			<div class="searchbox">
-				<input type="text" placeholder="Type a gene ID" 
-				v-model="geneID" v-on:keyup.enter="checkID" />
-				<!-- adaptive submit button -->
-				<button type="submit" 
-				:class="busy? 'cancel' : 'go'" 
-				:title="busy? 'Cancel request' : 'Show transcripts'" 
-				v-on:click="function(){ busy? cancel() : checkID() }">➔</button>
-			</div>
-			<p class="error">
-				{{ error }}
-			</p>
-		</div>
+  <div id="app">
+    <!-- top section -->
+    <header>
+      <h1>Ensembl <span>transcripts</span></h1>
+      <noscript>
+        <strong>
+          We're sorry but this webapp doesn't work properly without JavaScript enabled. Please enable it to continue.
+        </strong>
+      </noscript>
+    </header>
+      
+    <div class="search">
+      <div class="searchbox">
+        <input type="text" placeholder="Type a gene ID" 
+        v-model="geneID" v-on:keyup.enter="checkID" />
+        <!-- adaptive submit button -->
+        <button type="submit" 
+        :class="busy? 'cancel' : 'go'" 
+        :title="busy? 'Cancel request' : 'Show transcripts'" 
+        v-on:click="function(){ busy? cancel() : checkID() }">➔</button>
+      </div>
+      <p class="error">
+        {{ error }}
+      </p>
+    </div>
 
-		<!-- left column -->
-		<div class="sort">
-				Sort transcripts by length: <select v-model="order" @change="sort">
-					<option value="-1">longest first</option>
-					<option value="1">shortest first</option> order.
-				</select>
-		</div>
+    <!-- left column -->
+    <div class="sort">
+        Sort transcripts by length: <select v-model="order" @change="sort">
+          <option value="-1">longest first</option>
+          <option value="1">shortest first</option> order.
+        </select>
+    </div>
 
-		<div class="main">
-			<div class="genename" v-if="gene.id" :title="gene.info">{{ gene.name }}</div>
-			<div v-if="!gene.id" class="empty">
-				Enter a gene ID to draw 
-				(e.g. <a v-on:click="geneID = 'ENSG00000157764'">ENSG00000157764</a>)
-			</div>
-			<!-- transcript tracks (animated Vue component) -->
-			<transition-group name="sort" tag="div" class="transcripts">
-				<transcript 
-					v-for="tr in gene.Transcript" 
-					:key="tr.id" :data="tr"></transcript>
-			</transition-group>
-		</div>
+    <div class="main">
+      <div class="genename" v-if="gene.id" :title="gene.info">{{ gene.name }}</div>
+      <div v-if="!gene.id" class="empty">
+        Enter a gene ID to draw 
+        (e.g. <a v-on:click="geneID = 'ENSG00000157764'">ENSG00000157764</a>)
+      </div>
+      <!-- transcript tracks (animated Vue component) -->
+      <transition-group name="sort" tag="div" class="transcripts">
+        <transcript 
+          v-for="tr in gene.Transcript" 
+          :key="tr.id" :data="tr"></transcript>
+      </transition-group>
+    </div>
 
-		<!-- right column -->
-		<div class="htitle">🕑 Recent genes</div>
-			
-		<div class="history">
-			<ul>
-				<li v-if="!history.length" class="empty">No genes</li>
-				<li v-for="gene in history" :key="gene.id">
-					<span title="Display this gene" v-on:click="processData(gene)">{{ gene.id }}</span>
-				</li>	
-			</ul>
-		</div>
+    <!-- right column -->
+    <div class="htitle">🕑 Recent genes</div>
+      
+    <div class="history">
+      <ul>
+        <li v-if="!history.length" class="empty">No genes</li>
+        <li v-for="gene in history" :key="gene.id">
+          <span title="Display this gene" v-on:click="processData(gene)">{{ gene.id }}</span>
+        </li>  
+      </ul>
+    </div>
 
-		<!-- bottom section -->
-		<footer>
-			Andres Veidenberg (2020)
-		</footer>
-	</div>
-<!-- wire DOM up on pageload  -->		
+    <!-- bottom section -->
+    <footer>
+      Andres Veidenberg (2020)
+    </footer>
+  </div>
+<!-- wire DOM up on pageload  -->    
 <script src="app.js"></script>
 </body>
 </html>

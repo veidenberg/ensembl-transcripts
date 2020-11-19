@@ -8,15 +8,18 @@
     "test": "jest"
   },
   "devDependencies": {
+    "vue": "^2.6.12",
+    "vue-template-compiler": "^2.6.12",
     "@vue/test-utils": "^1.1.1",
-    "jest": "^26.0.0"
+    "jest": "^24.8.0"
   },
   "jest": {
-    "moduleFileExtensions": ["js", "json"],
-    "testMatch": [
-      "**/tests/*.test.js"
-    ]
+    "moduleFileExtensions": [ "js", "json" ],
+    "testMatch": [ "**/tests/*.test.js" ],
+    "testEnvironment": "jsdom"
   },
+  "repository": "github:veidenberg/ensembl-transcripts",
+  "homepage": "https://veidenberg.github.io/ensembl-transcripts/",
   "author": "Andres Veidenberg",
   "license": "MIT"
 }
