@@ -44,23 +44,18 @@ The webapp can also run without a web server (in offline mode):
 
 ### Development
 
-- Use the Vue development version (see index.html) and a hot-reloading server (e.g. Node live-server module)
+- Use the Vue development version (see index.html) and a hot-reloading server.
+Example setup:
+```
+npm install -g live-server #install globally
+live-server --port=8000 #browser will self-launch
+```
 
 ### Testing
 
-Unit test specifications in the `tests` directory are designed to test the Vue components used in the webapp.
-
-**Setup:**
-```
-npm install jest            #Jest test framework
-npm install @vue/test-utils #Vue unit testing library
-npm install vue-jest  #Vue integration
-```
-**Run the tests:**
-```
-jest
-```
-Currently the tests fail for technical reasons (environment setup issues). Work in progress...
+Webapp components are covered with unit tests (located in `__tests__` folder).
+1) Run `npm install` in the webapp root folder to install the testing tools.
+2) Run `jest` to launch the unit tests.
 
 # License
 
